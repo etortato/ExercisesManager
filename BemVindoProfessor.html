@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bem Vindo</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+</head>
+<body>
+<div class="container-full jumbotron">
+    <div class="row">
+        <div class="col-lg-12 text-center v-center">
+            <h1>Bem Vindo</h1>
+            <p class="lead">Professor faça seu login:</p>
+            <br>
+            <p class="text-info">
+                <a href="BemVindoAluno.html">Sou aluno</a>
+                /
+                <a href="BemVindoAdministrador.html">Sou administrador</a>
+            </p>
+            <br>
+            <form class="col-lg-12" action="rules/LoginProfessor.php" method="POST">
+                <div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
+                    <input type="text" class="form-control input-lg" title="Informe seu usuário."
+                           placeholder="Informe seu nome de usuário" name="txtLogin" required="required">
+                    <input type="password" class="form-control input-lg" title="Informe sua senha."
+                           placeholder="Informe sua senha" name="txtSenha" required="required">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        LOGIN
+                    </button>
+                </div>
+            </form>
+        </div>
+        <br>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Crie</h3></div>
+                <div class="panel-body">Cadastre seus questionários e publique para acesso dos alunos.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Organize</h3></div>
+                <div class="panel-body">Organize as perguntas dos seus questionários por assunto.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Compartilhe</h3></div>
+                <div class="panel-body">Compartilhe suas perguntas com outros professores.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <hr>
+        <div class="col-lg-12">
+            <div class="col-sm-12 col-md-6">
+                Feito com: <a href="getbootstrap.com">Bootstrap</a> | <a href="http://bootstrap-table.wenzhixin.net.cn/">BootstrapTable</a> | <a href="http://ned.im/noty/">Noty</a> | <a href="https://secure.php.net/">PHP</a>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <p class="muted pull-right">© 2017 Eduardo Tortato. Universidade Federal do Paraná</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.2.0.js"></script>
+<script src="js/bootstrap.js"></script>
+</html>

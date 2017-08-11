@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="questionario@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="questionario">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="marathon"/>
+    <schema id="5" parent="1" name="matchpoint"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="phpmyadmin"/>
+    <schema id="9" parent="1" name="test"/>
+    <table id="10" parent="2" name="assunto"/>
+    <table id="11" parent="2" name="curso"/>
+    <table id="12" parent="2" name="curtida"/>
+    <table id="13" parent="2" name="disciplina"/>
+    <table id="14" parent="2" name="professor"/>
+    <table id="15" parent="2" name="questao"/>
+    <table id="16" parent="2" name="questionario"/>
+    <table id="17" parent="2" name="questionario_questao"/>
+    <table id="18" parent="2" name="resposta"/>
+    <column id="19" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="20" parent="10" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="10" name="iddisciplina">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="10" name="idprofessorcadastro">
+      <Position>4</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="10" name="datacadastro">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="10" name="idprofessoredicao">
+      <Position>6</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="25" parent="10" name="dataedicao">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="26" parent="10" name="iddisciplina">
+      <ColNames>iddisciplina</ColNames>
+    </index>
+    <index id="27" parent="10" name="assuntocadastro_idx">
+      <ColNames>idprofessorcadastro</ColNames>
+    </index>
+    <index id="28" parent="10" name="assuntoedicao_idx">
+      <ColNames>idprofessoredicao</ColNames>
+    </index>
+    <key id="29" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="30" parent="10" name="assunto_ibfk_1">
+      <ColNames>iddisciplina</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>disciplina</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="31" parent="10" name="assuntocadastro">
+      <ColNames>idprofessorcadastro</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="32" parent="10" name="assuntoedicao">
+      <ColNames>idprofessoredicao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="33" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="11" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="11" name="idprofessorcadastro">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="11" name="datacadastro">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="11" name="idprofessoredicao">
+      <Position>5</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="38" parent="11" name="dataedicao">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="39" parent="11" name="nome">
+      <ColNames>nome</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="40" parent="11" name="cadastroCurso_idx">
+      <ColNames>idprofessorcadastro</ColNames>
+    </index>
+    <index id="41" parent="11" name="edicaoCurso_idx">
+      <ColNames>idprofessoredicao</ColNames>
+    </index>
+    <key id="42" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="43" parent="11" name="nome">
+      <ColNames>nome</ColNames>
+      <UnderlyingIndexName>nome</UnderlyingIndexName>
+    </key>
+    <foreign-key id="44" parent="11" name="cursoCadastro">
+      <ColNames>idprofessorcadastro</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="45" parent="11" name="cursoEdicao">
+      <ColNames>idprofessoredicao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="46" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="12" name="idprofessor">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="12" name="idquestao">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="12" name="datacadastro">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="50" parent="12" name="idprofessor">
+      <ColNames>idprofessor</ColNames>
+    </index>
+    <index id="51" parent="12" name="idquestao">
+      <ColNames>idquestao</ColNames>
+    </index>
+    <index id="52" parent="12" name="unique_professor_questao">
+      <ColNames>idprofessor
+idquestao</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="54" parent="12" name="unique_professor_questao">
+      <ColNames>idprofessor
+idquestao</ColNames>
+      <UnderlyingIndexName>unique_professor_questao</UnderlyingIndexName>
+    </key>
+    <foreign-key id="55" parent="12" name="curtida_professor">
+      <ColNames>idprofessor</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="56" parent="12" name="curtida_questao">
+      <ColNames>idquestao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>questao</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="57" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="13" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="13" name="idcurso">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="13" name="idprofessorcadastro">
+      <Position>4</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="13" name="datacadastro">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="13" name="idprofessoredicao">
+      <Position>6</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="63" parent="13" name="dataedicao">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="64" parent="13" name="idcurso">
+      <ColNames>idcurso</ColNames>
+    </index>
+    <index id="65" parent="13" name="nome_UNIQUE">
+      <ColNames>nome
+idcurso</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="66" parent="13" name="disciplinacadastro_idx">
+      <ColNames>idprofessorcadastro</ColNames>
+    </index>
+    <index id="67" parent="13" name="disciplinaedicao_idx">
+      <ColNames>idprofessoredicao</ColNames>
+    </index>
+    <key id="68" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="69" parent="13" name="nome_UNIQUE">
+      <ColNames>nome
+idcurso</ColNames>
+      <UnderlyingIndexName>nome_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="70" parent="13" name="disciplina_ibfk_1">
+      <ColNames>idcurso</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>curso</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="71" parent="13" name="disciplinacadastro">
+      <ColNames>idprofessorcadastro</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="72" parent="13" name="disciplinaedicao">
+      <ColNames>idprofessoredicao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="73" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="74" parent="14" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="14" name="login">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="14" name="senha">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;123456&apos;</DefaultExpression>
+    </column>
+    <column id="77" parent="14" name="datacadastro">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="78" parent="14" name="login_UNIQUE">
+      <ColNames>login</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="79" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="80" parent="14" name="login_UNIQUE">
+      <ColNames>login</ColNames>
+      <UnderlyingIndexName>login_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="81" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="15" name="descricao">
+      <Position>2</Position>
+      <DataType>varchar(4000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="15" name="idassunto">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="15" name="idprofessorcadastro">
+      <Position>4</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="15" name="datacadastro">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="15" name="idprofessoredicao">
+      <Position>6</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="87" parent="15" name="dataedicao">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="88" parent="15" name="idassunto">
+      <ColNames>idassunto</ColNames>
+    </index>
+    <index id="89" parent="15" name="questaocadastro_idx">
+      <ColNames>idprofessorcadastro</ColNames>
+    </index>
+    <index id="90" parent="15" name="questaoedicao_idx">
+      <ColNames>idprofessoredicao</ColNames>
+    </index>
+    <key id="91" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="92" parent="15" name="questao_ibfk_1">
+      <ColNames>idassunto</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>assunto</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="93" parent="15" name="questaocadastro">
+      <ColNames>idprofessorcadastro</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="94" parent="15" name="questaoedicao">
+      <ColNames>idprofessoredicao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="95" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="96" parent="16" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="16" name="iddisciplina">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="16" name="idprofessorcadastro">
+      <Position>4</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="16" name="datacadastro">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="16" name="idprofessoredicao">
+      <Position>6</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="101" parent="16" name="dataedicao">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="102" parent="16" name="cadastroquestionario_idx">
+      <ColNames>idprofessorcadastro</ColNames>
+    </index>
+    <index id="103" parent="16" name="edicaoquestionario_idx">
+      <ColNames>idprofessoredicao</ColNames>
+    </index>
+    <index id="104" parent="16" name="fk_questionario_disciplina_idx">
+      <ColNames>iddisciplina</ColNames>
+    </index>
+    <key id="105" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="106" parent="16" name="fk_questionario_disciplina">
+      <ColNames>iddisciplina</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>disciplina</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="107" parent="16" name="cadastroquestionario">
+      <ColNames>idprofessorcadastro</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="108" parent="16" name="edicaoquestionario">
+      <ColNames>idprofessoredicao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="109" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="110" parent="17" name="idquestao">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="17" name="idquestionario">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="112" parent="17" name="idprofessorcadastro">
+      <Position>4</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="17" name="datacadastro">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="114" parent="17" name="cadastroquestionarioquestao_idx">
+      <ColNames>idprofessorcadastro</ColNames>
+    </index>
+    <index id="115" parent="17" name="fk_questaopergunta_questao_idx">
+      <ColNames>idquestao</ColNames>
+    </index>
+    <index id="116" parent="17" name="fk_questionarioquestao_questionario_idx">
+      <ColNames>idquestionario</ColNames>
+    </index>
+    <key id="117" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="118" parent="17" name="fk_questionarioquestao_questao">
+      <ColNames>idquestao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>questao</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="119" parent="17" name="fk_questionarioquestao_questionario">
+      <ColNames>idquestionario</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>questionario</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="120" parent="17" name="cadastroquestionarioquestao">
+      <ColNames>idprofessorcadastro</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="121" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="122" parent="18" name="descricao">
+      <Position>2</Position>
+      <DataType>varchar(4000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="123" parent="18" name="correta">
+      <Position>3</Position>
+      <DataType>bit(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>b&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="124" parent="18" name="idquestao">
+      <Position>4</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="125" parent="18" name="idprofessorcadastro">
+      <Position>5</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="126" parent="18" name="datacadastro">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="127" parent="18" name="idprofessoredicao">
+      <Position>7</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="128" parent="18" name="dataedicao">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="129" parent="18" name="idquestao">
+      <ColNames>idquestao</ColNames>
+    </index>
+    <index id="130" parent="18" name="cadastroresposta_idx">
+      <ColNames>idprofessorcadastro</ColNames>
+    </index>
+    <index id="131" parent="18" name="edicaoresposta_idx">
+      <ColNames>idprofessoredicao</ColNames>
+    </index>
+    <key id="132" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="133" parent="18" name="resposta_ibfk_1">
+      <ColNames>idquestao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>questao</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="134" parent="18" name="cadastroresposta">
+      <ColNames>idprofessorcadastro</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="135" parent="18" name="edicaoresposta">
+      <ColNames>idprofessoredicao</ColNames>
+      <RefSchemaName>questionario</RefSchemaName>
+      <RefTableName>professor</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>

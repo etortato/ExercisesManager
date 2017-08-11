@@ -1,0 +1,25 @@
+.btn-selected {
+    background-color: #ffffff;
+    border-radius: 0px;
+    color: #0f0f0f !important;
+    font-weight: 700;
+}
+
+.btn-selected:hover {
+    background-color: #ffffff !important;
+    border-radius: 0px;
+    color: #0f0f0f !important;
+    font-weight: 700;
+}
+
+.nav-noborder {
+    border: 0px;
+}
+
+.link-pointer {
+    cursor: pointer;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
